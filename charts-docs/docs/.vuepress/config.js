@@ -20,7 +20,7 @@ module.exports = {
     lastUpdated: '上次更新',
     nav: [
       { text: '首页', link: '/' },
-      { text: '指南', link: '/guide/' },
+      { text: '指南', link: '/guide/' }
     ],
     navbar: true,
     sidebar: {
@@ -42,7 +42,7 @@ module.exports = {
             'guide/canvas',
             'guide/svg',
             'guide/echarts',
-            'guide/echarts-basic',
+            'guide/echarts-basic'
           ]
         },
         {
@@ -52,9 +52,9 @@ module.exports = {
             'report/intro',
             'report/guide',
             'report/qa',
-            'report/summary',
+            'report/summary'
           ]
-        },
+        }
       ]
     }
   }

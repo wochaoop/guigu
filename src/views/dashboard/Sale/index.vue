@@ -79,63 +79,64 @@
 
 <script>
 //引入echarts
-import echarts from "echarts";
-import dayjs from "dayjs";
-import { mapState } from "vuex";
+import echarts from 'echarts'
+import dayjs from 'dayjs'
+import { mapState } from 'vuex'
+
 export default {
-  name: "",
+  name: '',
   data() {
     return {
-      activeName: "sale",
+      activeName: 'sale',
       mycharts: null,
       //收集日历数据
-      date: [],
-    };
+      date: []
+    }
   },
   mounted() {
     //初始化echarts实例
-    this.mycharts = echarts.init(this.$refs.charts);
+    this.mycharts = echarts.init(this.$refs.charts)
     //配置数据
     this.mycharts.setOption({
       title: {
-        text: this.title + "趋势",
+        text: this.title + '趋势'
       },
       tooltip: {
-        trigger: "axis",
+        trigger: 'axis',
         axisPointer: {
-          type: "shadow",
-        },
+          type: 'shadow'
+        }
       },
       grid: {
-        left: "3%",
-        right: "4%",
-        bottom: "3%",
-        containLabel: true,
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
       },
       xAxis: [
         {
-          type: "category",
+          type: 'category',
           data: [],
           axisTick: {
-            alignWithLabel: true,
-          },
-        },
+            alignWithLabel: true
+          }
+        }
       ],
       yAxis: [
         {
-          type: "value",
-        },
+          type: 'value'
+        }
       ],
       series: [
         {
-          name: "Direct",
-          type: "bar",
-          barWidth: "60%",
+          name: 'Direct',
+          type: 'bar',
+          barWidth: '60%',
           data: [],
-          color: "yellowgreen",
-        },
-      ],
-    });
+          color: 'yellowgreen'
+        }
+      ]
+    })
 
     //顶部是mounted：为什么第一次没有数据，没有数据因此不显示
   },
@@ -143,112 +144,112 @@ export default {
     //计算属性-标题
     title() {
       //重新设置配置项
-      return this.activeName == "sale" ? "销售额" : "访问量";
+      return this.activeName == 'sale' ? '销售额' : '访问量'
     },
     ...mapState({
-      listState: (state) => state.home.list,
-    }),
+      listState: (state) => state.home.list
+    })
   },
   //监听属性
   watch: {
     title() {
-      console.log("修改配置数据");
+      console.log('修改配置数据')
       //重新修改图标的配置数据
       //图标配置数据可以再次修改，如果有新的数值，新的数值，没有新的数值，还是用以前的
       this.mycharts.setOption({
         title: {
-          text: this.title,
+          text: this.title
         },
         xAxis: {
           data:
-            this.title == "销售额"
+            this.title == '销售额'
               ? this.listState.orderFullYearAxis
-              : this.listState.userFullYearAxis,
+              : this.listState.userFullYearAxis
         },
         series: [
           {
-            name: "Direct",
-            type: "bar",
-            barWidth: "60%",
+            name: 'Direct',
+            type: 'bar',
+            barWidth: '60%',
             data:
-              this.title == "销售额"
+              this.title == '销售额'
                 ? this.listState.orderFullYear
                 : this.listState.userFullYear,
-            color: "yellowgreen",
-          },
-        ],
-      });
+            color: 'yellowgreen'
+          }
+        ]
+      })
     },
-    listState(){
-     this.mycharts.setOption({
-      title: {
-        text: this.title + "趋势",
-      },
-      tooltip: {
-        trigger: "axis",
-        axisPointer: {
-          type: "shadow",
+    listState() {
+      this.mycharts.setOption({
+        title: {
+          text: this.title + '趋势'
         },
-      },
-      grid: {
-        left: "3%",
-        right: "4%",
-        bottom: "3%",
-        containLabel: true,
-      },
-      xAxis: [
-        {
-          type: "category",
-          data: this.listState.orderFullYearAxis,
-          axisTick: {
-            alignWithLabel: true,
-          },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow'
+          }
         },
-      ],
-      yAxis: [
-        {
-          type: "value",
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
         },
-      ],
-      series: [
-        {
-          name: "Direct",
-          type: "bar",
-          barWidth: "60%",
-          data: this.listState.orderFullYear,
-          color: "yellowgreen",
-        },
-      ],
-    });
+        xAxis: [
+          {
+            type: 'category',
+            data: this.listState.orderFullYearAxis,
+            axisTick: {
+              alignWithLabel: true
+            }
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value'
+          }
+        ],
+        series: [
+          {
+            name: 'Direct',
+            type: 'bar',
+            barWidth: '60%',
+            data: this.listState.orderFullYear,
+            color: 'yellowgreen'
+          }
+        ]
+      })
 
     }
   },
   methods: {
     //本天
     setDay() {
-      const day = dayjs().format("YYYY-MM-DD");
-      this.date = [day, day];
+      const day = dayjs().format('YYYY-MM-DD')
+      this.date = [day, day]
     },
     //本周
     setWeek() {
-      const start = dayjs().day(1).format("YYYY-MM-DD");
-      const end = dayjs().day(7).format("YYYY-MM-DD");
-      this.date = [start, end];
+      const start = dayjs().day(1).format('YYYY-MM-DD')
+      const end = dayjs().day(7).format('YYYY-MM-DD')
+      this.date = [start, end]
     },
     //本月
     setMonth() {
-      const start = dayjs().startOf("month").format("YYYY-MM-DD");
-      const end = dayjs().endOf("month").format("YYYY-MM-DD");
-      this.date = [start, end];
+      const start = dayjs().startOf('month').format('YYYY-MM-DD')
+      const end = dayjs().endOf('month').format('YYYY-MM-DD')
+      this.date = [start, end]
     },
     //本年
     setYear() {
-      const start = dayjs().startOf("year").format("YYYY-MM-DD");
-      const end = dayjs().endOf("year").format("YYYY-MM-DD");
-      this.date = [start, end];
-    },
-  },
-};
+      const start = dayjs().startOf('year').format('YYYY-MM-DD')
+      const end = dayjs().endOf('year').format('YYYY-MM-DD')
+      this.date = [start, end]
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -257,34 +258,42 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+
 .tab {
   width: 100%;
 }
+
 .right {
   position: absolute;
   right: 0px;
 }
+
 .date {
   width: 250px;
   margin: 0px 20px;
 }
+
 .right span {
   margin: 0px 10px;
 }
+
 .charts {
   width: 100%;
   height: 300px;
 }
+
 ul {
   list-style: none;
   width: 100%;
   height: 300px;
   padding: 0px;
 }
+
 ul li {
   height: 8%;
   margin: 10px 0px;
 }
+
 .rindex {
   float: left;
   width: 20px;
@@ -294,6 +303,7 @@ ul li {
   color: white;
   text-align: center;
 }
+
 .rvalue {
   float: right;
 }

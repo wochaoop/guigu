@@ -1,9 +1,8 @@
 {
-  "salesTotal":114779,
-  "salesToday":112356,
+  "salesTotal": 114779,
+  "salesToday": 112356,
   "salesGrowthLastDay": -19.16,
   "salesGrowthLastMonth": 56.67,
-
   "visitTotal": 88460,
   "visitToday": 1234,
   "visitTrend": [
@@ -23,7 +22,6 @@
     220,
     620
   ],
-
   "payTotal": 182425,
   "payRate": 60.2,
   "payTrend": [
@@ -42,11 +40,9 @@
     330,
     150
   ],
-
   "activityRate": 78,
   "activityGrowthLastDay": -17.7,
   "activityGrowthLastMonth": 47.12,
-
   "orderFullYearAxis": [
     "1月",
     "2月",
@@ -61,7 +57,20 @@
     "11月",
     "12月"
   ],
-  "orderFullYear": [410, 82, 200, 334, 390, 330, 220, 150, 82, 200, 134, 290],
+  "orderFullYear": [
+    410,
+    82,
+    200,
+    334,
+    390,
+    330,
+    220,
+    150,
+    82,
+    200,
+    134,
+    290
+  ],
   "userFullYearAxis": [
     "1月",
     "2月",
@@ -76,8 +85,20 @@
     "11月",
     "12月"
   ],
-  "userFullYear": [110, 120, 90, 220, 175, 212, 192, 95, 88, 120, 250, 310],
-
+  "userFullYear": [
+    110,
+    120,
+    90,
+    220,
+    175,
+    212,
+    192,
+    95,
+    88,
+    120,
+    250,
+    310
+  ],
   "orderRank": [
     {
       "no": 1,
@@ -115,7 +136,6 @@
       "money": "200,997"
     }
   ],
-
   "userRank": [
     {
       "no": 1,
@@ -153,7 +173,6 @@
       "money": "172,995"
     }
   ],
-
   "searchWord": [
     {
       "word": "北京",
@@ -366,7 +385,6 @@
       "user": 2362
     }
   ],
-
   "saleRank": {
     "online": {
       "name": [
@@ -377,7 +395,14 @@
         "母婴产品",
         "其他"
       ],
-      "value": [244, 321, 301, 41, 111, 69]
+      "value": [
+        244,
+        321,
+        301,
+        41,
+        111,
+        69
+      ]
     },
     "shop": {
       "name": [
@@ -388,7 +413,15 @@
         "母婴产品",
         "其他"
       ],
-      "value": [68, 15, 41, 56, 70, 25, 31]
+      "value": [
+        68,
+        15,
+        41,
+        56,
+        70,
+        25,
+        31
+      ]
     }
   }
 }

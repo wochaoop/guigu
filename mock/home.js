@@ -1,4 +1,4 @@
-const data = require('./data.json');
+const data = require('./data.json')
 module.exports = [
   {
     url: '/home/list',
@@ -7,7 +7,7 @@ module.exports = [
       const items = data.items
       return {
         code: 20000,
-        data
+        data: items
       }
     }
   }

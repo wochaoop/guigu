@@ -15,6 +15,7 @@ features:
 ---
 
 # 前置学习
+
 - 具备javascript、html、css的基础
 - 具备Vue的使用基础
 
